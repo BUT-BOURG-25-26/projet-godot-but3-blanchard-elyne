@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody3D
 
 @export var move_speed:float = 5
-@export var life: int = 5
+@export var current_life: int = 5
 @export var max_life : int = 5
 
 var move_inputs: Vector2

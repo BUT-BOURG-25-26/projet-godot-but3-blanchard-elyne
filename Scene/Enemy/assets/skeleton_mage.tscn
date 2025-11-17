@@ -1,25 +1,25 @@
 [gd_scene load_steps=17 format=3 uid="uid://cs4kjkivlrgf7"]
 
-[ext_resource type="PackedScene" uid="uid://k452imo0dwmx" path="res://Assets/KayKit_Skeletons_1.1_FREE/characters/fbx/Skeleton_Mage.fbx" id="1_qovry"]
-[ext_resource type="Animation" uid="uid://d2krqvcbmph60" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Walking_A.res" id="2_6b5je"]
-[ext_resource type="Animation" uid="uid://dltgmxrtnha20" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Running_A.res" id="3_54wl7"]
-[ext_resource type="Animation" uid="uid://8243l4c40va5" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Death_A.res" id="4_gx7tg"]
-[ext_resource type="Animation" uid="uid://dtbpayfcn65b7" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Hit_A.res" id="5_07fpg"]
-[ext_resource type="Animation" uid="uid://b3e8vvx0qb0j5" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Hit_B.res" id="6_fab6u"]
-[ext_resource type="Animation" uid="uid://6ypv2f7w6bkq" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Spawn_Air.res" id="7_tscnj"]
-[ext_resource type="Animation" uid="uid://d10ajkx32knb3" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Spawn_Ground.res" id="8_o6500"]
-[ext_resource type="Animation" uid="uid://bf0micxia3gt1" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Throw.res" id="9_8h7au"]
+[ext_resource type="PackedScene" uid="uid://k452imo0dwmx" path="res://Assets/KayKit_Skeletons_1.1_FREE/characters/fbx/Skeleton_Mage.fbx" id="1_v6vuu"]
+[ext_resource type="Animation" uid="uid://d2krqvcbmph60" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Walking_A.res" id="2_l707x"]
+[ext_resource type="Animation" uid="uid://dltgmxrtnha20" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Running_A.res" id="3_puysj"]
+[ext_resource type="Animation" uid="uid://8243l4c40va5" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Death_A.res" id="4_ft1iu"]
+[ext_resource type="Animation" uid="uid://dtbpayfcn65b7" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Hit_A.res" id="5_6m57y"]
+[ext_resource type="Animation" uid="uid://b3e8vvx0qb0j5" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Hit_B.res" id="6_1h8y7"]
+[ext_resource type="Animation" uid="uid://6ypv2f7w6bkq" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Spawn_Air.res" id="7_b58u2"]
+[ext_resource type="Animation" uid="uid://d10ajkx32knb3" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Spawn_Ground.res" id="8_qcwx5"]
+[ext_resource type="Animation" uid="uid://bf0micxia3gt1" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Throw.res" id="9_bjj4o"]
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_57grl"]
 _data = {
-&"Death_A": ExtResource("4_gx7tg"),
-&"Hit_A": ExtResource("5_07fpg"),
-&"Hit_B": ExtResource("6_fab6u"),
-&"Running_A": ExtResource("3_54wl7"),
-&"Spawn_Air": ExtResource("7_tscnj"),
-&"Spawn_Ground": ExtResource("8_o6500"),
-&"Throw": ExtResource("9_8h7au"),
-&"Walking_A": ExtResource("2_6b5je")
+&"Death_A": ExtResource("4_ft1iu"),
+&"Hit_A": ExtResource("5_6m57y"),
+&"Hit_B": ExtResource("6_1h8y7"),
+&"Running_A": ExtResource("3_puysj"),
+&"Spawn_Air": ExtResource("7_b58u2"),
+&"Spawn_Ground": ExtResource("8_qcwx5"),
+&"Throw": ExtResource("9_bjj4o"),
+&"Walking_A": ExtResource("2_l707x")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w8awt"]
@@ -47,7 +47,8 @@ states/animations_Walking_A/node = SubResource("AnimationNodeAnimation_b2ui6")
 states/animations_Walking_A/position = Vector2(551, 81)
 transitions = ["Start", "animations_Walking_A", SubResource("AnimationNodeStateMachineTransition_rhjx8"), "animations_Walking_A", "animations_Throw", SubResource("AnimationNodeStateMachineTransition_s3rcl"), "animations_Throw", "animations_Walking_A", SubResource("AnimationNodeStateMachineTransition_24pwx")]
 
-[node name="Skeleton_Mage" instance=ExtResource("1_qovry")]
+[node name="Skeleton_Mage" instance=ExtResource("1_v6vuu")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="Skeleton3D" parent="Rig_Medium" index="0"]
 bones/1/position = Vector3(-2.36658e-30, 0.392064, 0)

@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://cisb4aa257cal"]
+
+[ext_resource type="PackedScene" uid="uid://bls26shnhlln8" path="res://Scene/Enemy/enemy.tscn" id="1_us2k5"]
+[ext_resource type="Script" uid="uid://dowvcxnb807sf" path="res://Scripts/enemy_skeleton_minion.gd" id="2_f0qpg"]
+[ext_resource type="PackedScene" uid="uid://mljytye0i1qi" path="res://Scene/Enemy/assets/skeleton_minion.tscn" id="2_w54e5"]
+
+[node name="Enemy" instance=ExtResource("1_us2k5")]
+script = ExtResource("2_f0qpg")
+
+[node name="Skeleton_Minion" parent="." index="1" instance=ExtResource("2_w54e5")]
