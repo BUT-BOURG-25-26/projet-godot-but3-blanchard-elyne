@@ -1,5 +1,5 @@
 extends Node3D
-class_name AnimationSkeletonMinion
+class_name AnimationSkeletonRogue
 
 var is_spawning : bool = true
 var finished_dying = false

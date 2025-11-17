@@ -1,8 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://crumcpldl208q"]
+[gd_scene load_steps=4 format=3 uid="uid://crumcpldl208q"]
 
 [ext_resource type="Script" uid="uid://k1itl3rwf5wy" path="res://Scripts/enemy_spawner.gd" id="1_es2l8"]
+[ext_resource type="Script" uid="uid://wa2y0d7hyswt" path="res://Scripts/spawn_timer_sk_minion.gd" id="2_k07ff"]
+[ext_resource type="Script" uid="uid://dqciufgfwd40l" path="res://Scripts/spawn_timer_sk_rogue.gd" id="3_rvd7u"]
 
 [node name="EnemySpawner" type="Node3D"]
 script = ExtResource("1_es2l8")
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="SpawnTimerSKMinion" type="Timer" parent="."]
+script = ExtResource("2_k07ff")
+
+[node name="SpawnTimerSKRogue" type="Timer" parent="."]
+script = ExtResource("3_rvd7u")
+
+[connection signal="timeout" from="SpawnTimerSKMinion" to="SpawnTimerSKMinion" method="_on_timeout"]
+[connection signal="timeout" from="SpawnTimerSKRogue" to="SpawnTimerSKRogue" method="_on_timeout"]
