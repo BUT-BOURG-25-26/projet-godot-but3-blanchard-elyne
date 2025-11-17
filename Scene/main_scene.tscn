@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://blyx2p4jrwcy1"]
+[gd_scene load_steps=7 format=3 uid="uid://blyx2p4jrwcy1"]
+
+[ext_resource type="PackedScene" uid="uid://c3iulafatcxyd" path="res://Scene/World/ground.tscn" id="1_31fxm"]
+[ext_resource type="PackedScene" uid="uid://nvmulavgx8lt" path="res://Scene/player.tscn" id="2_06yma"]
+[ext_resource type="PackedScene" uid="uid://cqvggsymvtqlk" path="res://Scene/World/white_blank_ground.tscn" id="3_06yma"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31fxm"]
+
+[sub_resource type="Sky" id="Sky_06yma"]
+sky_material = SubResource("ProceduralSkyMaterial_31fxm")
+
+[sub_resource type="Environment" id="Environment_4kvl3"]
+background_mode = 2
+sky = SubResource("Sky_06yma")
+tonemap_mode = 2
 
 [node name="MainScene" type="Node3D"]
+
+[node name="Ground" parent="." instance=ExtResource("1_31fxm")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.900167, 0.435545, 0, -0.435545, 0.900167, -0.0389655, 3.1672, 3.5806)
+fov = 92.8125
+
+[node name="Player" parent="." instance=ExtResource("2_06yma")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706622, 0.0184262, -1.43831)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4kvl3")
+
+[node name="WhiteBlankGround" parent="." instance=ExtResource("3_06yma")]
