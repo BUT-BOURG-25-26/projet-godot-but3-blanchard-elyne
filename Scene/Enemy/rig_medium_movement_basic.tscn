@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://chrrhplske3bg"]
+
+[ext_resource type="PackedScene" uid="uid://1me1lfdtt3j1" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Rig_Medium_MovementBasic.fbx" id="1_v0m83"]
+
+[node name="Rig_Medium_MovementBasic" instance=ExtResource("1_v0m83")]
