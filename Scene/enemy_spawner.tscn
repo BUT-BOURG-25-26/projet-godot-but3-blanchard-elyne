@@ -5,4 +5,4 @@
 [node name="EnemySpawner" type="Node3D"]
 script = ExtResource("1_es2l8")
 
-[node name="SpawnTime" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="."]

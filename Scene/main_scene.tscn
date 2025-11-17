@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://blyx2p4jrwcy1"]
+[gd_scene load_steps=10 format=3 uid="uid://blyx2p4jrwcy1"]
 
 [ext_resource type="PackedScene" uid="uid://c3iulafatcxyd" path="res://Scene/World/ground.tscn" id="1_31fxm"]
 [ext_resource type="PackedScene" uid="uid://nvmulavgx8lt" path="res://Scene/player.tscn" id="2_06yma"]
 [ext_resource type="PackedScene" uid="uid://cqvggsymvtqlk" path="res://Scene/World/white_blank_ground.tscn" id="3_06yma"]
 [ext_resource type="Script" uid="uid://wf2t5raglsxt" path="res://Scripts/camera_3d.gd" id="5_lee88"]
 [ext_resource type="PackedScene" uid="uid://cisb4aa257cal" path="res://Scene/Enemy/enemy_minion.tscn" id="5_lttqn"]
+[ext_resource type="PackedScene" uid="uid://crumcpldl208q" path="res://Scene/enemy_spawner.tscn" id="6_lee88"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31fxm"]
 
@@ -36,3 +37,8 @@ offset = Vector3(0, 8, 8)
 
 [node name="Enemy" parent="." instance=ExtResource("5_lttqn")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("6_lee88")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9949, 0, 6.05666)
+enemy_scenes = Array[PackedScene]([ExtResource("5_lttqn")])
+spawn_interval = Array[Vector2]([Vector2(2, 5)])
