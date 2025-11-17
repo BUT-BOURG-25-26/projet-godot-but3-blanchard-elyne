@@ -7,6 +7,7 @@
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6l3be"]
 
 [node name="Player" type="CharacterBody3D"]
+collision_mask = 28
 script = ExtResource("1_kelma")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
