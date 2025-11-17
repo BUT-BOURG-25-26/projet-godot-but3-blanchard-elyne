@@ -19,6 +19,8 @@ func _ready() -> void:
 	spawn_timer.timeout.connect(spawn_enemy)
 
 func spawn_enemy() -> void :
+	if enemy_scenes.is_empty() || spawn_interval.is_empty():
+		return
 	
 	var distance : int = rng.randi_range(min_spawn_distance, max_spawn_distance)
 	

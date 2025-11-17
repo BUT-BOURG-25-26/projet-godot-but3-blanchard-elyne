@@ -47,6 +47,14 @@ move_left={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="PlayerBullet"
+3d_physics/layer_3="Enemy"
+3d_physics/layer_4="EnemyBullet"
+3d_physics/layer_5="World"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
