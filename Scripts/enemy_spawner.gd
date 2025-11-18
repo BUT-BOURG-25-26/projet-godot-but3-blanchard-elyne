@@ -35,4 +35,3 @@ func spawn_enemy(indice_enemy : int) -> void :
 	
 	get_parent().add_child(enemy)
 	enemy.position = Vector3(x,0.0,z)
-	print("enemy position : ",enemy.position)
