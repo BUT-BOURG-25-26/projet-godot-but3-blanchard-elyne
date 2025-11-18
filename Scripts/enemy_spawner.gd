@@ -4,6 +4,7 @@ class_name EnemySpawner
 
 @export var enemy_scenes : Array[PackedScene]
 @export var spawn_interval : Array[Vector2]
+@export var spawn_distance : Array[Vector2]
 @export var min_spawn_distance : int = 20
 @export var max_spawn_distance : int = 50
 
@@ -20,15 +21,18 @@ func _ready() -> void:
 		spawn_timers.get(i).timeout_indice.connect(spawn_enemy)
 
 func spawn_enemy(indice_enemy : int) -> void :
-	if enemy_scenes.is_empty() || spawn_interval.is_empty():
+	if enemy_scenes.is_empty() || spawn_interval.is_empty() || spawn_distance.is_empty():
 		return
 	
-	var distance : int = rng.randi_range(min_spawn_distance, max_spawn_distance)
 	
-	var x = 1 + rng.randf_range(-1, 1)
-	var z = 1 + rng.randf_range(-1, 1)
+	var distance : int = rng.randi_range(spawn_distance.get(indice_enemy).x, spawn_distance.get(indice_enemy).y)
+	var angle = rng.randf_range(0,2 * PI)
 	
+	var x = player.global_position.x + distance * cos(angle)
+	var z = player.global_position.z + distance * sin(angle)
+
 	var enemy = enemy_scenes.get(indice_enemy).instantiate()
 	
 	get_parent().add_child(enemy)
-	enemy.position = player.global_position + (distance * Vector3(x,0.0,z).normalized())
+	enemy.position = Vector3(x,0.0,z)
+	print("enemy position : ",enemy.position)
