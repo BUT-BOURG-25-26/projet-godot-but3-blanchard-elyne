@@ -29,7 +29,9 @@ func _physics_process(delta: float) -> void:
 		
 	if move_inputs != Vector2.ZERO:
 		global_position += velocity
+	
 	return
+	
 
 
 func read_move_inputs():
@@ -44,3 +46,10 @@ func shoot():
 	bullet.global_position = global_position
 	get_tree().current_scene.add_child(bullet)
 	return
+
+func take_damage(damage : int) -> void:
+	current_life -= damage
+	if (current_life<=0):
+		get_tree().reload_current_scene()
+		##GamePlayer.game_over()
+	print(current_life)

@@ -5,6 +5,7 @@ class_name Enemy
 @export var walk_speed : int = 2
 @export var max_life : int = 1
 @export var current_life : int = 1
+@export var damages : int = 1
 
 
 var player : Player
@@ -19,6 +20,13 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	move_pattern(delta)
 	move_and_slide()
+	
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider is Player:
+			(collider as Player).take_damage(damages)
+			die()
 
 
 func move_pattern(delta: float) -> void :
