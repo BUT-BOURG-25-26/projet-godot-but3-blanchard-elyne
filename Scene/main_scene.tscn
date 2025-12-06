@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blyx2p4jrwcy1"]
+[gd_scene load_steps=14 format=3 uid="uid://blyx2p4jrwcy1"]
 
 [ext_resource type="PackedScene" uid="uid://c3iulafatcxyd" path="res://Scene/World/ground.tscn" id="1_31fxm"]
 [ext_resource type="PackedScene" uid="uid://nvmulavgx8lt" path="res://Scene/Player/player.tscn" id="2_06yma"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cisb4aa257cal" path="res://Scene/Enemy/enemy_skeleton_minion.tscn" id="5_lttqn"]
 [ext_resource type="PackedScene" uid="uid://crumcpldl208q" path="res://Scene/enemy_spawner.tscn" id="6_lee88"]
 [ext_resource type="PackedScene" uid="uid://cb7gposxm8yhi" path="res://Scene/Enemy/enemy_skeleton_rogue.tscn" id="7_1d8q1"]
+[ext_resource type="FontFile" uid="uid://bohb2mry30dk4" path="res://Assets/Kenney Blocks.ttf" id="8_i64o6"]
+[ext_resource type="Script" uid="uid://bgoc3lpjn561j" path="res://Scripts/score.gd" id="8_k2rys"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31fxm"]
 
@@ -17,6 +19,9 @@ sky_material = SubResource("ProceduralSkyMaterial_31fxm")
 background_mode = 2
 sky = SubResource("Sky_06yma")
 tonemap_mode = 2
+
+[sub_resource type="LabelSettings" id="LabelSettings_k2rys"]
+font = ExtResource("8_i64o6")
 
 [node name="MainScene" type="Node3D"]
 
@@ -42,3 +47,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9949, 0, 6.05666)
 enemy_scenes = Array[PackedScene]([ExtResource("5_lttqn"), ExtResource("7_1d8q1")])
 spawn_interval = Array[Vector2]([Vector2(1, 2), Vector2(2, 3)])
 spawn_distance = Array[Vector2]([Vector2(20, 50), Vector2(50, 100)])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0
+label_settings = SubResource("LabelSettings_k2rys")
+horizontal_alignment = 2
+script = ExtResource("8_k2rys")
