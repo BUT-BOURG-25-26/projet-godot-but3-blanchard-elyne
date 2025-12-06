@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 			if collider is Player:
 				(collider as Player).take_damage(damages)
 				die()
+				break
 
 
 func move_pattern(delta: float) -> void :
@@ -36,9 +37,11 @@ func move_pattern(delta: float) -> void :
 
 func die() -> void :
 	is_dying = true
+	
 
 func destroy() -> void:
 	GameManager.increase_score(score_value)
+	print("score_value : ",score_value)
 	queue_free()
 
 func take_damage(damage : int) -> void:

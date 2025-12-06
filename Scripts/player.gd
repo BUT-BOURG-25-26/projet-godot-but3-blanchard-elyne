@@ -6,15 +6,19 @@ extends CharacterBody3D
 @export var max_life : int = 5
 @export var shoot_intervals: Array[float]
 @export var bullet_scenes : Array[PackedScene]
+@export var invincibility_time : float = 0.5
 
 @onready var shoot_timer : Timer = $ShootTimer
+@onready var invicibility_timer : Timer = $InvincibilityTimer
 
 var move_inputs: Vector2
 var look_at_point : Vector3 = Vector3.FORWARD
+var is_invincible = false
 
 func _ready() -> void:
 	shoot_timer.start(shoot_intervals.get(0))
 	shoot_timer.timeout.connect(shoot)
+	invicibility_timer.timeout.connect(on_invicibility_end)
 
 
 func _physics_process(delta: float) -> void:
@@ -48,7 +52,16 @@ func shoot():
 	return
 
 func take_damage(damage : int) -> void:
+	if is_invincible || current_life <=0:
+		return
+	is_invincible = true
 	current_life -= damage
 	if (current_life<=0):
 		GameManager.game_over()
-	print(current_life)
+	else :
+		invicibility_timer.start(invincibility_time)
+	print("current_life : ",current_life)
+
+
+func on_invicibility_end():
+	is_invincible = false

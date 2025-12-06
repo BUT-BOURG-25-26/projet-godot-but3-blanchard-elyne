@@ -27,3 +27,5 @@ mesh = SubResource("CapsuleMesh_6l3be")
 surface_material_override/0 = SubResource("StandardMaterial3D_g0r71")
 
 [node name="ShootTimer" type="Timer" parent="."]
+
+[node name="InvincibilityTimer" type="Timer" parent="."]

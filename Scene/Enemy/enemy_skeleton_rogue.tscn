@@ -8,5 +8,10 @@
 collision_layer = 4
 collision_mask = 19
 script = ExtResource("2_g4odx")
+r_speed = 4
+w_speed = 2
+m_life = 1
+damage = 1
+s_value = 2
 
 [node name="Skeleton_Rogue" parent="." index="1" instance=ExtResource("3_m6lp8")]
