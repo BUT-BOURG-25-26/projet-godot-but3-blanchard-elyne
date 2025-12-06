@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cisb4aa257cal"]
 
-[ext_resource type="PackedScene" uid="uid://bls26shnhlln8" path="res://Scene/Enemy/enemy.tscn" id="1_kcdxd"]
+[ext_resource type="PackedScene" uid="uid://bls26shnhlln8" path="res://Scene/Enemy/Enemy.tscn" id="1_kcdxd"]
 [ext_resource type="Script" uid="uid://dowvcxnb807sf" path="res://Scripts/enemy_skeleton_minion.gd" id="2_ok1sk"]
 [ext_resource type="PackedScene" uid="uid://mljytye0i1qi" path="res://Scene/Enemy/assets/skeleton_minion.tscn" id="3_jng0w"]
 

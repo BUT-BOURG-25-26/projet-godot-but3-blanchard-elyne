@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cb7gposxm8yhi"]
 
-[ext_resource type="PackedScene" uid="uid://bls26shnhlln8" path="res://Scene/Enemy/enemy.tscn" id="1_x4ys6"]
+[ext_resource type="PackedScene" uid="uid://bls26shnhlln8" path="res://Scene/Enemy/Enemy.tscn" id="1_x4ys6"]
 [ext_resource type="Script" uid="uid://x53u5qpejdk7" path="res://Scripts/enemy_skeleton_rogue.gd" id="2_g4odx"]
 [ext_resource type="PackedScene" uid="uid://bvc77qfwpxlk7" path="res://Scene/Enemy/assets/skeleton_rogue.tscn" id="3_m6lp8"]
 

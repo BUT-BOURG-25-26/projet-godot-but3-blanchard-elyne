@@ -6,6 +6,7 @@ class_name Enemy
 @export var max_life : int = 1
 @export var current_life : int = 1
 @export var damages : int = 1
+var isDying = false
 
 
 var player : Player
@@ -21,18 +22,20 @@ func _physics_process(delta: float) -> void:
 	move_pattern(delta)
 	move_and_slide()
 	
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		var collider = collision.get_collider()
-		if collider is Player:
-			(collider as Player).take_damage(damages)
-			die()
+	if (!isDying) :
+		for i in range(get_slide_collision_count()):
+			var collision = get_slide_collision(i)
+			var collider = collision.get_collider()
+			if collider is Player:
+				(collider as Player).take_damage(damages)
+				die()
 
 
 func move_pattern(delta: float) -> void :
 	pass
 
 func die() -> void :
+	isDying = true
 	pass
 
 func destroy() -> void:

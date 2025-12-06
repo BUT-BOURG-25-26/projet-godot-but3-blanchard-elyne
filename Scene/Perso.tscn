@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://batc04dmgemns"]
+
+[ext_resource type="PackedScene" uid="uid://1me1lfdtt3j1" path="res://Assets/KayKit_Skeletons_1.1_FREE/Animations/fbx/Rig_Medium/Rig_Medium_MovementBasic.fbx" id="1_kwefr"]
+
+[node name="Perso" type="CharacterBody3D"]
+
+[node name="Rig_Medium_MovementBasic" parent="." instance=ExtResource("1_kwefr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018453, 1.19209e-07, 0.291654)
