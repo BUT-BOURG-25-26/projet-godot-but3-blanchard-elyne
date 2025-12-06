@@ -6,7 +6,8 @@ class_name Enemy
 @export var max_life : int = 1
 @export var current_life : int = 1
 @export var damages : int = 1
-var isDying = false
+@export var score_value : int = 1
+var is_dying = false
 
 
 var player : Player
@@ -21,8 +22,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	move_pattern(delta)
 	move_and_slide()
-	
-	if (!isDying) :
+	if (!is_dying) :
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
 			var collider = collision.get_collider()
@@ -35,11 +35,10 @@ func move_pattern(delta: float) -> void :
 	pass
 
 func die() -> void :
-	isDying = true
-	pass
+	is_dying = true
 
 func destroy() -> void:
-	##GameManager.increase_score()
+	GameManager.increase_score(score_value)
 	queue_free()
 
 func take_damage(damage : int) -> void:

@@ -50,6 +50,5 @@ func shoot():
 func take_damage(damage : int) -> void:
 	current_life -= damage
 	if (current_life<=0):
-		get_tree().reload_current_scene()
-		##GamePlayer.game_over()
+		GameManager.game_over()
 	print(current_life)
