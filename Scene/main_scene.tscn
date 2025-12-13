@@ -35,12 +35,13 @@ shoot_intervals = Array[float]([0.5])
 environment = SubResource("Environment_4kvl3")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.900167, 0.435545, 0, -0.435545, 0.900167, -0.0389655, 3.1672, 3.5806)
+transform = Transform3D(1, 0, 0, 0, 0.756767, 0.653684, 0, -0.653684, 0.756767, -0.0389655, 8.7866, 7.64218)
 fov = 92.8125
 script = ExtResource("5_lee88")
-offset = Vector3(0, 8, 8)
+offset = Vector3(0, 10, 15)
 
 [node name="WhiteBlankGround" parent="." instance=ExtResource("3_06yma")]
+visible = false
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_lee88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9949, 0, 6.05666)
