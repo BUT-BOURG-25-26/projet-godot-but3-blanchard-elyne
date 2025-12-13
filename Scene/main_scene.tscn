@@ -28,6 +28,7 @@ font = ExtResource("8_i64o6")
 
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_06yma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706622, 0.0184262, -1.43831)
+move_speed = 20.0
 shoot_intervals = Array[float]([0.5])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
