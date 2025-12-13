@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	update_chunks()
 
 func update_chunks():
-	var player_chunk = Vector2(int(player.position.x / chunk_size.x),int(player.position.y / chunk_size.y))
+	var player_chunk = Vector2(int(player.global_position.x / chunk_size.x),int(player.global_position.z / chunk_size.y))
 	if player_chunk != current_chunk :
 		current_chunk = player_chunk
 		var chunks_to_loads = get_chunk_to_load(player_chunk)
@@ -38,8 +38,7 @@ func update_chunks():
 
 func get_chunk_to_load(player_chunk):
 	var chunks_to_load = []
-	# grille établie : 5 par 5 (à voir comment on réparti et combien de chunk on met
-	for x in range (player_chunk.x -2, player_chunk.y +3):
+	for x in range (player_chunk.x -3, player_chunk.x +3):
 		for y in range (player_chunk.y -2, player_chunk.y +3):
 			chunks_to_load.append(Vector2(x,y))
 	return chunks_to_load
@@ -51,7 +50,6 @@ func load_chunk(chunk_coords):
 	add_child(chunk_scene)
 	chunk_scene.global_position.x = chunk_global_x
 	chunk_scene.global_position.z = chunk_global_z
-	print("chunk_scene.global_position : ",chunk_scene.global_position)
 	loaded_chunks[chunk_coords] = chunk_scene
 
 
