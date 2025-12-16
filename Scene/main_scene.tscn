@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://blyx2p4jrwcy1"]
+[gd_scene load_steps=14 format=3 uid="uid://blyx2p4jrwcy1"]
 
 [ext_resource type="PackedScene" uid="uid://c3iulafatcxyd" path="res://Scene/World/ground.tscn" id="1_31fxm"]
 [ext_resource type="PackedScene" uid="uid://nvmulavgx8lt" path="res://Scene/Player/player.tscn" id="2_06yma"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cb7gposxm8yhi" path="res://Scene/Enemy/enemy_skeleton_rogue.tscn" id="7_1d8q1"]
 [ext_resource type="FontFile" uid="uid://bohb2mry30dk4" path="res://Assets/Kenney Blocks.ttf" id="8_i64o6"]
 [ext_resource type="Script" uid="uid://bgoc3lpjn561j" path="res://Scripts/score.gd" id="8_k2rys"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="9_i64o6"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31fxm"]
 
@@ -58,3 +59,5 @@ grow_horizontal = 0
 label_settings = SubResource("LabelSettings_k2rys")
 horizontal_alignment = 2
 script = ExtResource("8_k2rys")
+
+[node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("9_i64o6")]

@@ -7,9 +7,12 @@ extends CharacterBody3D
 @export var shoot_intervals: Array[float]
 @export var bullet_scenes : Array[PackedScene]
 @export var invincibility_time : float = 0.5
+@export var joystick_left : VirtualJoystick
 
 @onready var shoot_timer : Timer = $ShootTimer
 @onready var invicibility_timer : Timer = $InvincibilityTimer
+
+
 
 var move_inputs: Vector2
 var look_at_point : Vector3 = Vector3.FORWARD
@@ -39,8 +42,10 @@ func _physics_process(delta: float) -> void:
 
 
 func read_move_inputs():
-	move_inputs.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	move_inputs.y = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
+	move_inputs = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	
+	#move_inputs.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	#move_inputs.y = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
 	move_inputs = move_inputs.normalized()
 	return
 
