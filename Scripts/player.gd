@@ -43,9 +43,6 @@ func _physics_process(delta: float) -> void:
 
 func read_move_inputs():
 	move_inputs = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
-	
-	#move_inputs.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
-	#move_inputs.y = Input.get_action_strength("move_backward") - Input.get_action_strength("move_forward")
 	move_inputs = move_inputs.normalized()
 	return
 
