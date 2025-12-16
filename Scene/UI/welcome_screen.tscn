@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b52w4xf6y5nfb"]
+[gd_scene load_steps=4 format=3 uid="uid://b52w4xf6y5nfb"]
 
 [ext_resource type="Script" uid="uid://3ekaab4fdke0" path="res://Scripts/welcome_menu.gd" id="1_8ra5k"]
+[ext_resource type="FontFile" uid="uid://bohb2mry30dk4" path="res://Assets/Kenney Blocks.ttf" id="2_di2cd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_di2cd"]
-bg_color = Color(0.337255, 0.4, 0.6, 1)
+bg_color = Color(0.423421, 0.33661, 0.695521, 1)
 
 [node name="WelcomeScreen" type="CanvasLayer"]
 script = ExtResource("1_8ra5k")
@@ -20,6 +21,7 @@ offset_right = 53.0
 offset_bottom = 176.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_di2cd")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_di2cd")
 text = "QUIT"
@@ -36,7 +38,8 @@ offset_right = 202.0
 offset_bottom = -82.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("2_di2cd")
+theme_override_font_sizes/font_size = 50
 text = "Projet Moteur 3D Blanchard"
 
 [node name="PlayButton" type="Button" parent="."]
@@ -51,6 +54,7 @@ offset_right = 53.0
 offset_bottom = 76.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_di2cd")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_di2cd")
 text = "PLAY
@@ -68,6 +72,8 @@ offset_right = 85.0
 offset_bottom = -51.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_di2cd")
+theme_override_font_sizes/font_size = 30
 text = "Vampire Survivor Like"
 
 [connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
