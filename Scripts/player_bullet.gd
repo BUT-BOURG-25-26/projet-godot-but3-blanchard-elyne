@@ -12,8 +12,6 @@ func _ready() -> void:
 	move.z = player.look_at_point.z - player.global_position.z
 
 func _physics_process(delta: float) -> void:
-	##if !GameManager.is_game_running:
-		##return
 	
 	var x = global_position.x-player.global_position.x
 	var z = global_position.z-player.global_position.z
