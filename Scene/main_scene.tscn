@@ -60,3 +60,7 @@ horizontal_alignment = 2
 script = ExtResource("8_k2rys")
 
 [node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("9_i64o6")]
+
+[node name="DifficultyTimer" type="Timer" parent="." groups=["difficulty_timer"]]
+
+[connection signal="timeout" from="DifficultyTimer" to="EnemySpawner" method="_on_difficulty_timer_timeout"]

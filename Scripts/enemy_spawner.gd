@@ -14,13 +14,14 @@ var rng = RandomNumberGenerator.new()
 
 
 func _ready() -> void:
+	GameManager.start_difficulty_timer()
 	player = get_tree().get_first_node_in_group("player")
 	for i in spawn_timers.size() :
 		spawn_timers.get(i).start(randf_range(GameManager.spawn_interval.get(i).x,GameManager.spawn_interval.get(i).y))
 		spawn_timers.get(i).timeout_indice.connect(spawn_enemy)
 
 func spawn_enemy(indice_enemy : int) -> void :
-	if enemy_scenes.is_empty() || GameManager.spawn_interval.is_empty() || GameManager.spawn_distance.is_empty():
+	if enemy_scenes.is_empty() || GameManager.spawn_interval.is_empty() || spawn_distance.is_empty():
 		return
 	
 	
@@ -30,7 +31,11 @@ func spawn_enemy(indice_enemy : int) -> void :
 	var x = player.global_position.x + distance * cos(angle)
 	var z = player.global_position.z + distance * sin(angle)
 
-	var enemy = GameManager.enemy_scenes.get(indice_enemy).instantiate()
+	var enemy = enemy_scenes.get(indice_enemy).instantiate()
 	
 	get_parent().add_child(enemy)
 	enemy.position = Vector3(x,0.0,z)
+
+
+func _on_difficulty_timer_timeout() -> void:
+	GameManager.increase_difficulty()
