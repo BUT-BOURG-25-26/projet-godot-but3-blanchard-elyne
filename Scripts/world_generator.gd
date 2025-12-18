@@ -39,7 +39,7 @@ func update_chunks():
 func get_chunk_to_load(player_chunk):
 	var chunks_to_load = []
 	for x in range (player_chunk.x -3, player_chunk.x +3):
-		for y in range (player_chunk.y -2, player_chunk.y +3):
+		for y in range (player_chunk.y -3, player_chunk.y +2):
 			chunks_to_load.append(Vector2(x,y))
 	return chunks_to_load
 
