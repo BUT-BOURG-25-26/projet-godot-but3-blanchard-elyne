@@ -2,6 +2,7 @@ extends Node
 
 var current_score: int =0
 var is_game_running = true
+@export var spawn_interval : Array[Vector2] = [Vector2(1,2),Vector2(2,3)]
 
 @onready var main_scene : PackedScene = preload("res://Scene/main_scene.tscn")
 @onready var game_over_scene : PackedScene = preload("res://Scene/UI/game_over_menu.tscn")
