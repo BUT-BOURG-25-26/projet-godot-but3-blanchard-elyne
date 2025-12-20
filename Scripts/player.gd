@@ -19,6 +19,7 @@ var look_at_point : Vector3 = Vector3.FORWARD
 var is_invincible = false
 
 func _ready() -> void:
+	GameManager.current_life = current_life
 	shoot_timer.start(shoot_intervals.get(0))
 	shoot_timer.timeout.connect(shoot)
 	invicibility_timer.timeout.connect(on_invicibility_end)
@@ -58,6 +59,7 @@ func take_damage(damage : int) -> void:
 		return
 	is_invincible = true
 	current_life -= damage
+	GameManager.change_life(current_life)
 	if (current_life<=0):
 		GameManager.game_over()
 	else :

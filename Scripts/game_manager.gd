@@ -1,6 +1,7 @@
 extends Node
 
 var current_score: int =0
+var current_life: int
 var is_game_running = true
 @export var difficulty_increase_interval = 10
 @export var spawn_interval_orig : Array[Vector2] = [Vector2(1,2),Vector2(2,3),Vector2(3,4),Vector2(4,5)]
@@ -20,6 +21,10 @@ func start_difficulty_timer()-> void :
 
 func increase_score(score)-> void  :
 	current_score += score
+
+func change_life(new_life : int) -> void :
+	current_life = new_life
+
 
 func game_over()-> void :
 	is_game_running = false
