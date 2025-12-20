@@ -62,7 +62,6 @@ func take_damage(damage : int) -> void:
 		GameManager.game_over()
 	else :
 		invicibility_timer.start(invincibility_time)
-	print("current_life : ",current_life)
 
 
 func on_invicibility_end():

@@ -41,7 +41,6 @@ func die() -> void :
 
 func destroy() -> void:
 	GameManager.increase_score(score_value)
-	print("score_value : ",score_value)
 	queue_free()
 
 func take_damage(damage : int) -> void:
