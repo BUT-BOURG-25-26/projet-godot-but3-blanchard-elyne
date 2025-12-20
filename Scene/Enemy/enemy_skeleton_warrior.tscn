@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cduhmocoadter"]
+
+[ext_resource type="PackedScene" uid="uid://bls26shnhlln8" path="res://Scene/Enemy/Enemy.tscn" id="1_nrfac"]
+[ext_resource type="Script" uid="uid://by26whog1x5bs" path="res://Scripts/enemy_skeleton_warrior.gd" id="2_djpur"]
+[ext_resource type="PackedScene" uid="uid://dxv74ur7qdamg" path="res://Scene/Enemy/assets/skeleton_warrior.tscn" id="2_tq3n8"]
+
+[node name="Enemy" instance=ExtResource("1_nrfac")]
+script = ExtResource("2_djpur")
+w_speed = 5
+m_life = 3
+damage = 5
+s_value = 4
+distance_start_running = 30
+running_time = 4
+
+[node name="Skeleton_Warrior" parent="." index="1" instance=ExtResource("2_tq3n8")]
