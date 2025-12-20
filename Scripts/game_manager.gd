@@ -4,7 +4,7 @@ var current_score: int =0
 var is_game_running = true
 @export var difficulty_increase_interval = 10
 @export var spawn_interval_orig : Array[Vector2] = [Vector2(1,2),Vector2(2,3),Vector2(3,4),Vector2(4,5)]
-@export var spawn_number_orig : Array[float] = [1,-1,-3,-6]
+@export var spawn_number_orig : Array[float] = [1,-1,1,-6]
 
 var spawn_interval : Array[Vector2] = spawn_interval_orig
 var spawn_number : Array[float] = spawn_number_orig
