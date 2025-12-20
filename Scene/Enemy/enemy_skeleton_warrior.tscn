@@ -4,9 +4,7 @@
 [ext_resource type="Script" uid="uid://by26whog1x5bs" path="res://Scripts/enemy_skeleton_warrior.gd" id="2_djpur"]
 [ext_resource type="PackedScene" uid="uid://dxv74ur7qdamg" path="res://Scene/Enemy/assets/skeleton_warrior.tscn" id="2_tq3n8"]
 
-[node name="Enemy" instance=ExtResource("1_nrfac")]
-collision_layer = 4
-collision_mask = 19
+[node name="Enemy2" instance=ExtResource("1_nrfac")]
 script = ExtResource("2_djpur")
 w_speed = 5
 m_life = 3
