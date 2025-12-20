@@ -23,17 +23,17 @@ func _ready() -> void:
 func spawn_enemy(indice_enemy : int) -> void :
 	if enemy_scenes.is_empty() || GameManager.spawn_interval.is_empty() || spawn_distance.is_empty() || GameManager.spawn_number.is_empty():
 		return
-	
-	for i in GameManager.spawn_number.get(indice_enemy):
-		var distance : int = rng.randi_range(spawn_distance.get(indice_enemy).x,spawn_distance.get(indice_enemy).y)
-		var angle = rng.randf_range(0,2 * PI)
-		
-		var x = player.global_position.x + distance * cos(angle)
-		var z = player.global_position.z + distance * sin(angle)
-		var enemy = enemy_scenes.get(indice_enemy).instantiate()
-		
-		get_parent().add_child(enemy)
-		enemy.position = Vector3(x,0.0,z)
+	if (GameManager.spawn_number.get(indice_enemy) > 0):
+		for i in GameManager.spawn_number.get(indice_enemy):
+			var distance : int = rng.randi_range(spawn_distance.get(indice_enemy).x,spawn_distance.get(indice_enemy).y)
+			var angle = rng.randf_range(0,2 * PI)
+			
+			var x = player.global_position.x + distance * cos(angle)
+			var z = player.global_position.z + distance * sin(angle)
+			var enemy = enemy_scenes.get(indice_enemy).instantiate()
+			
+			get_parent().add_child(enemy)
+			enemy.position = Vector3(x,0.0,z)
 
 
 func _on_difficulty_timer_timeout() -> void:
