@@ -7,6 +7,8 @@ radius = 0.743557
 height = 2.48857
 
 [node name="Enemy" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 19
 script = ExtResource("1_cisrx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
