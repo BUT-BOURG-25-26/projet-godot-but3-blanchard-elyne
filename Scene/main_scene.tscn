@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://blyx2p4jrwcy1"]
+[gd_scene load_steps=15 format=3 uid="uid://blyx2p4jrwcy1"]
 
 [ext_resource type="PackedScene" uid="uid://c3iulafatcxyd" path="res://Scene/World/ground.tscn" id="1_31fxm"]
 [ext_resource type="PackedScene" uid="uid://nvmulavgx8lt" path="res://Scene/Player/player.tscn" id="2_06yma"]
 [ext_resource type="Script" uid="uid://wf2t5raglsxt" path="res://Scripts/camera_3d.gd" id="5_lee88"]
 [ext_resource type="PackedScene" uid="uid://cisb4aa257cal" path="res://Scene/Enemy/enemy_skeleton_minion.tscn" id="5_lttqn"]
 [ext_resource type="PackedScene" uid="uid://crumcpldl208q" path="res://Scene/enemy_spawner.tscn" id="6_lee88"]
+[ext_resource type="PackedScene" uid="uid://cduhmocoadter" path="res://Scene/Enemy/enemy_skeleton_warrior.tscn" id="7_0xtjt"]
 [ext_resource type="PackedScene" uid="uid://cb7gposxm8yhi" path="res://Scene/Enemy/enemy_skeleton_rogue.tscn" id="7_1d8q1"]
 [ext_resource type="FontFile" uid="uid://bohb2mry30dk4" path="res://Assets/Kenney Blocks.ttf" id="8_i64o6"]
 [ext_resource type="Script" uid="uid://bgoc3lpjn561j" path="res://Scripts/score.gd" id="8_k2rys"]
@@ -43,8 +44,8 @@ offset = Vector3(0, 10, 15)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_lee88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9949, 0, 6.05666)
-enemy_scenes = Array[PackedScene]([ExtResource("5_lttqn"), ExtResource("7_1d8q1")])
-spawn_distance = Array[Vector2]([Vector2(30, 50), Vector2(40, 60)])
+enemy_scenes = Array[PackedScene]([ExtResource("5_lttqn"), ExtResource("7_1d8q1"), ExtResource("7_0xtjt")])
+spawn_distance = Array[Vector2]([Vector2(30, 50), Vector2(40, 60), Vector2(60, 70)])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

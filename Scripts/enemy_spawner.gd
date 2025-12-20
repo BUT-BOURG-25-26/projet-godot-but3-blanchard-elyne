@@ -7,7 +7,7 @@ class_name EnemySpawner
 @export var min_spawn_distance : int = 20
 @export var max_spawn_distance : int = 50
 
-@onready var spawn_timers = [$SpawnTimerSKMinion,$SpawnTimerSKRogue]
+@onready var spawn_timers = [$SpawnTimerSKMinion,$SpawnTimerSKRogue,$SpawnTimerSKWarrior]
 
 var player : Player
 var rng = RandomNumberGenerator.new()
