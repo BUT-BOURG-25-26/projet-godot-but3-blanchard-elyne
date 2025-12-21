@@ -12,7 +12,6 @@ func _ready() -> void:
 		add_child(life_icon)
 
 func _process(delta : float) -> void :
-	print(player.current_life ," < ", get_child_count())
 	if player.current_life < get_child_count():
 		var life_delta = get_child_count() - player.current_life
 		animation_player.play("take_damage")
