@@ -11,7 +11,7 @@
 [ext_resource type="Script" uid="uid://bgoc3lpjn561j" path="res://Scripts/score.gd" id="8_k2rys"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="9_i64o6"]
 [ext_resource type="Script" uid="uid://ctlcfv5u86ljm" path="res://Scripts/life_holder.gd" id="12_7riyq"]
-[ext_resource type="PackedScene" uid="uid://c85ugejju5v1i" path="res://Scene/UI/life_icon.tscn" id="13_k87s1"]
+[ext_resource type="PackedScene" uid="uid://ghsgwkdi0hs" path="res://Scene/UI/life_icon.tscn" id="13_k87s1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31fxm"]
 
@@ -22,23 +22,6 @@ sky_material = SubResource("ProceduralSkyMaterial_31fxm")
 background_mode = 2
 sky = SubResource("Sky_06yma")
 tonemap_mode = 2
-
-[sub_resource type="Animation" id="Animation_j1xvy"]
-resource_name = "take_damage"
-length = 0.1
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0), Color(1, 0, 0, 0.654902)]
-}
 
 [sub_resource type="Animation" id="Animation_7riyq"]
 length = 0.001
@@ -72,6 +55,23 @@ tracks/0/keys = {
 "values": [Color(1, 1, 0.988235, 1), Color(0, 1, 0, 0.509804)]
 }
 
+[sub_resource type="Animation" id="Animation_j1xvy"]
+resource_name = "take_damage"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0), Color(1, 0, 0, 0.654902)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k87s1"]
 _data = {
 &"RESET": SubResource("Animation_7riyq"),
@@ -89,7 +89,7 @@ font = ExtResource("8_i64o6")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_06yma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706622, 0.0184262, -1.43831)
 move_speed = 20.0
-shoot_intervals = Array[float]([0.5])
+shoot_intervals = Array[float]([0.5, 1.0])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4kvl3")
