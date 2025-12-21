@@ -49,4 +49,6 @@ func increase_difficulty() -> void:
 		spawn_number_temp.append(spawn_number.get(i)+0.5)
 	spawn_interval = spawn_interval_temp
 	spawn_number = spawn_number_temp
+	var player = get_tree().get_first_node_in_group("player")
+	(player as Player).gain_life(1)
 	return

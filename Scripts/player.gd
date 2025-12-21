@@ -67,3 +67,9 @@ func take_damage(damage : int) -> void:
 
 func on_invicibility_end():
 	is_invincible = false
+
+func gain_life(life : int) -> void :
+	if current_life + life >= max_life :
+		current_life = max_life
+	else :
+		current_life = current_life + life
