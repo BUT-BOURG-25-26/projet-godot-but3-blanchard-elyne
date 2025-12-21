@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://hckph6gtqlr3" path="res://Textures/skeleton_life_icon.png" id="1_2r3a4"]
 
 [node name="LifeIcon" type="TextureRect"]
-modulate = Color(1, 1, 1, 0)
-size_flags_horizontal = 0
 texture = ExtResource("1_2r3a4")
 expand_mode = 2
+stretch_mode = 5

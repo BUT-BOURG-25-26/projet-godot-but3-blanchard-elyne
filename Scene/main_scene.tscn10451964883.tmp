@@ -1,17 +1,14 @@
-[gd_scene load_steps=21 format=3 uid="uid://blyx2p4jrwcy1"]
+[gd_scene load_steps=14 format=3 uid="uid://blyx2p4jrwcy1"]
 
 [ext_resource type="PackedScene" uid="uid://c3iulafatcxyd" path="res://Scene/World/ground.tscn" id="1_31fxm"]
 [ext_resource type="PackedScene" uid="uid://nvmulavgx8lt" path="res://Scene/Player/player.tscn" id="2_06yma"]
 [ext_resource type="Script" uid="uid://wf2t5raglsxt" path="res://Scripts/camera_3d.gd" id="5_lee88"]
 [ext_resource type="PackedScene" uid="uid://cisb4aa257cal" path="res://Scene/Enemy/enemy_skeleton_minion.tscn" id="5_lttqn"]
 [ext_resource type="PackedScene" uid="uid://crumcpldl208q" path="res://Scene/enemy_spawner.tscn" id="6_lee88"]
-[ext_resource type="PackedScene" uid="uid://cduhmocoadter" path="res://Scene/Enemy/enemy_skeleton_warrior.tscn" id="7_0xtjt"]
 [ext_resource type="PackedScene" uid="uid://cb7gposxm8yhi" path="res://Scene/Enemy/enemy_skeleton_rogue.tscn" id="7_1d8q1"]
 [ext_resource type="FontFile" uid="uid://bohb2mry30dk4" path="res://Assets/Kenney Blocks.ttf" id="8_i64o6"]
 [ext_resource type="Script" uid="uid://bgoc3lpjn561j" path="res://Scripts/score.gd" id="8_k2rys"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="9_i64o6"]
-[ext_resource type="Script" uid="uid://ctlcfv5u86ljm" path="res://Scripts/life_holder.gd" id="12_7riyq"]
-[ext_resource type="PackedScene" uid="uid://ghsgwkdi0hs" path="res://Scene/UI/life_icon.tscn" id="13_k87s1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31fxm"]
 
@@ -23,62 +20,6 @@ background_mode = 2
 sky = SubResource("Sky_06yma")
 tonemap_mode = 2
 
-[sub_resource type="Animation" id="Animation_7riyq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_k87s1"]
-resource_name = "gain_life"
-length = 0.1
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 0.988235, 1), Color(0, 1, 0, 0.509804)]
-}
-
-[sub_resource type="Animation" id="Animation_j1xvy"]
-resource_name = "take_damage"
-length = 0.1
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0), Color(1, 0, 0, 0.654902)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_k87s1"]
-_data = {
-&"RESET": SubResource("Animation_7riyq"),
-&"gain_life": SubResource("Animation_k87s1"),
-&"take_damage": SubResource("Animation_j1xvy")
-}
-
 [sub_resource type="LabelSettings" id="LabelSettings_k2rys"]
 font = ExtResource("8_i64o6")
 
@@ -89,7 +30,7 @@ font = ExtResource("8_i64o6")
 [node name="Player" parent="." groups=["player"] instance=ExtResource("2_06yma")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.706622, 0.0184262, -1.43831)
 move_speed = 20.0
-shoot_intervals = Array[float]([0.5, 1.0])
+shoot_intervals = Array[float]([0.5])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_4kvl3")
@@ -102,18 +43,10 @@ offset = Vector3(0, 10, 15)
 
 [node name="EnemySpawner" parent="." instance=ExtResource("6_lee88")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9949, 0, 6.05666)
-enemy_scenes = Array[PackedScene]([ExtResource("5_lttqn"), ExtResource("7_1d8q1"), ExtResource("7_0xtjt")])
-spawn_distance = Array[Vector2]([Vector2(30, 50), Vector2(40, 60), Vector2(60, 70)])
+enemy_scenes = Array[PackedScene]([ExtResource("5_lttqn"), ExtResource("7_1d8q1")])
+spawn_distance = Array[Vector2]([Vector2(30, 50), Vector2(40, 60)])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="LifeHolderAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-root_node = NodePath("../LifeHolder")
-libraries = {
-&"": SubResource("AnimationLibrary_k87s1")
-}
-
-[node name="LifeHolderAnimationTimer" type="Timer" parent="CanvasLayer"]
 
 [node name="Score" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
@@ -128,14 +61,6 @@ script = ExtResource("8_k2rys")
 
 [node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("9_i64o6")]
 
-[node name="LifeHolder" type="HBoxContainer" parent="CanvasLayer"]
-offset_right = 200.0
-offset_bottom = 50.0
-size_flags_horizontal = 0
-script = ExtResource("12_7riyq")
-life_icon_scene = ExtResource("13_k87s1")
-
 [node name="DifficultyTimer" type="Timer" parent="." groups=["difficulty_timer"]]
 
-[connection signal="timeout" from="CanvasLayer/LifeHolderAnimationTimer" to="CanvasLayer/LifeHolder" method="_on_life_holder_animation_timer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="EnemySpawner" method="_on_difficulty_timer_timeout"]
