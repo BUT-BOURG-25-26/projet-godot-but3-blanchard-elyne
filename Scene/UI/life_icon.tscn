@@ -4,6 +4,6 @@
 
 [node name="LifeIcon" type="TextureRect"]
 modulate = Color(1, 1, 1, 0)
-scale = Vector2(0.1, 0.1)
+size_flags_horizontal = 0
 texture = ExtResource("1_2r3a4")
 expand_mode = 2

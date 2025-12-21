@@ -10,6 +10,7 @@ func _ready() -> void:
 	for i in range(player.current_life):
 		var life_icon = life_icon_scene.instantiate()
 		add_child(life_icon)
+	print(get_child_count())
 
 func _process(delta : float) -> void :
 	if player.current_life < get_child_count():
@@ -20,7 +21,7 @@ func _process(delta : float) -> void :
 			get_child((get_child_count()-1)).queue_free()
 	if player.current_life > get_child_count() :
 		var life_delta = player.current_life - get_child_count()
-		animation_player.play("take_damage")
+		animation_player.play("gain_life")
 		animation_timer.start(1)
 		for i in life_delta :
 			var life_icon = life_icon_scene.instantiate()
