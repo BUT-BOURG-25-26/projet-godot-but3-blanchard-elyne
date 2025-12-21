@@ -1,4 +1,5 @@
 extends Area3D
+class_name PlayerAttackZone
 
 var player : Player
 var move : Vector3
@@ -14,6 +15,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body is Enemy :
+		print("attackZone")
 		(body as Enemy).take_damage(damage)
 
 
