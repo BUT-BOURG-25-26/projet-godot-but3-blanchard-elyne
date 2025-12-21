@@ -116,11 +116,12 @@ libraries = {
 [node name="LifeHolderAnimationTimer" type="Timer" parent="CanvasLayer"]
 
 [node name="Score" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 23.0
+anchors_preset = -1
+anchor_left = 0.983
+anchor_right = 0.983
+offset_left = -39.416
+offset_right = 0.583984
+offset_bottom = 24.0
 grow_horizontal = 0
 label_settings = SubResource("LabelSettings_k2rys")
 horizontal_alignment = 2
