@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c85ugejju5v1i"]
+
+[ext_resource type="Texture2D" uid="uid://hckph6gtqlr3" path="res://Textures/skeleton_life_icon.png" id="1_2r3a4"]
+
+[node name="LifeIcon" type="TextureRect"]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_2r3a4")
+expand_mode = 2

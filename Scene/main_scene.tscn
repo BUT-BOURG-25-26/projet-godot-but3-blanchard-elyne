@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://blyx2p4jrwcy1"]
+[gd_scene load_steps=17 format=3 uid="uid://blyx2p4jrwcy1"]
 
 [ext_resource type="PackedScene" uid="uid://c3iulafatcxyd" path="res://Scene/World/ground.tscn" id="1_31fxm"]
 [ext_resource type="PackedScene" uid="uid://nvmulavgx8lt" path="res://Scene/Player/player.tscn" id="2_06yma"]
@@ -10,7 +10,8 @@
 [ext_resource type="FontFile" uid="uid://bohb2mry30dk4" path="res://Assets/Kenney Blocks.ttf" id="8_i64o6"]
 [ext_resource type="Script" uid="uid://bgoc3lpjn561j" path="res://Scripts/score.gd" id="8_k2rys"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="9_i64o6"]
-[ext_resource type="Script" uid="uid://d18biqirl7ivx" path="res://Scripts/health_bar.gd" id="11_g51t8"]
+[ext_resource type="Script" uid="uid://ctlcfv5u86ljm" path="res://Scripts/life_holder.gd" id="12_7riyq"]
+[ext_resource type="PackedScene" uid="uid://c85ugejju5v1i" path="res://Scene/UI/life_icon.tscn" id="13_k87s1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_31fxm"]
 
@@ -24,12 +25,6 @@ tonemap_mode = 2
 
 [sub_resource type="LabelSettings" id="LabelSettings_k2rys"]
 font = ExtResource("8_i64o6")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j1xvy"]
-bg_color = Color(0.282053, 0.70521, 0.271959, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7riyq"]
-bg_color = Color(2.02149e-06, 0.661603, 0.104276, 1)
 
 [node name="MainScene" type="Node3D"]
 
@@ -69,16 +64,13 @@ script = ExtResource("8_k2rys")
 
 [node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("9_i64o6")]
 
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+[node name="LifeHolder" type="HBoxContainer" parent="CanvasLayer"]
 offset_right = 200.0
-offset_bottom = 30.0
-theme_override_styles/background = SubResource("StyleBoxFlat_j1xvy")
-theme_override_styles/fill = SubResource("StyleBoxFlat_7riyq")
-script = ExtResource("11_g51t8")
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 50.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("12_7riyq")
+life_icon_scene = ExtResource("13_k87s1")
 
 [node name="DifficultyTimer" type="Timer" parent="." groups=["difficulty_timer"]]
 
