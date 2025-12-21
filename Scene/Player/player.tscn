@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://nvmulavgx8lt"]
+[gd_scene load_steps=10 format=3 uid="uid://nvmulavgx8lt"]
 
 [ext_resource type="Script" uid="uid://bx41v0j3ybyeg" path="res://Scripts/player.gd" id="1_kelma"]
 [ext_resource type="PackedScene" uid="uid://bsrpofjhkkxk5" path="res://Scene/Player/player_bullet.tscn" id="2_yic5t"]
+[ext_resource type="PackedScene" uid="uid://b2lk7yobbymd5" path="res://Scene/Player/player_zone_attack1.tscn" id="3_jd8gp"]
 [ext_resource type="Texture2D" uid="uid://dkguqfwg1lkua" path="res://Assets/KayKit_Skeletons_1.1_FREE/texture/skeleton_texture.png" id="3_uuj77"]
+[ext_resource type="Script" uid="uid://cq5lg0g5irtyv" path="res://Scripts/shoot_timer_0.gd" id="5_ewflj"]
+[ext_resource type="Script" uid="uid://dhpkjqf0ht0er" path="res://Scripts/shoot_timer_1.gd" id="6_2x3rd"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j8lcb"]
 
@@ -12,11 +15,12 @@
 albedo_texture = ExtResource("3_uuj77")
 
 [node name="Player" type="CharacterBody3D"]
-collision_mask = 28
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_kelma")
 move_speed = 10.0
-shoot_intervals = Array[float]([0.75])
-bullet_scenes = Array[PackedScene]([ExtResource("2_yic5t")])
+shoot_intervals = Array[float]([0.75, 1.0])
+bullet_scenes = Array[PackedScene]([ExtResource("2_yic5t"), ExtResource("3_jd8gp")])
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00155, 0)
@@ -27,6 +31,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00941, 0)
 mesh = SubResource("CapsuleMesh_6l3be")
 surface_material_override/0 = SubResource("StandardMaterial3D_g0r71")
 
-[node name="ShootTimer" type="Timer" parent="."]
+[node name="ShootTimer0" type="Timer" parent="."]
+script = ExtResource("5_ewflj")
 
 [node name="InvincibilityTimer" type="Timer" parent="."]
+
+[node name="ShootTimer1" type="Timer" parent="."]
+script = ExtResource("6_2x3rd")
+
+[connection signal="timeout" from="ShootTimer0" to="ShootTimer0" method="_on_timeout"]
+[connection signal="timeout" from="ShootTimer1" to="ShootTimer1" method="_on_timeout"]

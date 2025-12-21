@@ -9,7 +9,7 @@ extends CharacterBody3D
 @export var invincibility_time : float = 0.5
 @export var joystick_left : VirtualJoystick
 
-@onready var shoot_timer : Timer = $ShootTimer
+@onready var shoot_timers : Array[Timer] = [$ShootTimer0,$ShootTimer1]
 @onready var invicibility_timer : Timer = $InvincibilityTimer
 
 
@@ -19,8 +19,9 @@ var look_at_point : Vector3 = Vector3.FORWARD
 var is_invincible = false
 
 func _ready() -> void:
-	shoot_timer.start(shoot_intervals.get(0))
-	shoot_timer.timeout.connect(shoot)
+	for i in shoot_timers.size() :
+		shoot_timers.get(i).start(shoot_intervals.get(i))
+		shoot_timers.get(i).timeout_indice.connect(attack)
 	invicibility_timer.timeout.connect(on_invicibility_end)
 
 
@@ -47,10 +48,10 @@ func read_move_inputs():
 	return
 
 
-func shoot(): 
-	var bullet = bullet_scenes.get(0).instantiate()
-	bullet.global_position = global_position
-	get_tree().current_scene.add_child(bullet)
+func attack( attack_indice : int) -> void: 
+	var attack = bullet_scenes.get(attack_indice).instantiate()
+	attack.global_position = global_position
+	get_tree().current_scene.add_child(attack)
 	return
 
 func take_damage(damage : int) -> void:
@@ -58,7 +59,6 @@ func take_damage(damage : int) -> void:
 		return
 	is_invincible = true
 	current_life -= damage
-	GameManager.change_life(current_life)
 	if (current_life<=0):
 		GameManager.game_over()
 	else :
