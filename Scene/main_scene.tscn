@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://blyx2p4jrwcy1"]
+[gd_scene load_steps=21 format=3 uid="uid://blyx2p4jrwcy1"]
 
 [ext_resource type="PackedScene" uid="uid://c3iulafatcxyd" path="res://Scene/World/ground.tscn" id="1_31fxm"]
 [ext_resource type="PackedScene" uid="uid://nvmulavgx8lt" path="res://Scene/Player/player.tscn" id="2_06yma"]
@@ -22,6 +22,62 @@ sky_material = SubResource("ProceduralSkyMaterial_31fxm")
 background_mode = 2
 sky = SubResource("Sky_06yma")
 tonemap_mode = 2
+
+[sub_resource type="Animation" id="Animation_j1xvy"]
+resource_name = "take_damage"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0), Color(1, 0, 0, 0.654902)]
+}
+
+[sub_resource type="Animation" id="Animation_7riyq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_k87s1"]
+resource_name = "gain_life"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 0.988235, 1), Color(0, 1, 0, 0.509804)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k87s1"]
+_data = {
+&"RESET": SubResource("Animation_7riyq"),
+&"gain_life": SubResource("Animation_k87s1"),
+&"take_damage": SubResource("Animation_j1xvy")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_k2rys"]
 font = ExtResource("8_i64o6")
@@ -51,6 +107,14 @@ spawn_distance = Array[Vector2]([Vector2(30, 50), Vector2(40, 60), Vector2(60, 7
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="LifeHolderAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../LifeHolder")
+libraries = {
+&"": SubResource("AnimationLibrary_k87s1")
+}
+
+[node name="LifeHolderAnimationTimer" type="Timer" parent="CanvasLayer"]
+
 [node name="Score" type="Label" parent="CanvasLayer"]
 anchors_preset = 1
 anchor_left = 1.0
@@ -74,4 +138,5 @@ life_icon_scene = ExtResource("13_k87s1")
 
 [node name="DifficultyTimer" type="Timer" parent="." groups=["difficulty_timer"]]
 
+[connection signal="timeout" from="CanvasLayer/LifeHolderAnimationTimer" to="CanvasLayer/LifeHolder" method="_on_life_holder_animation_timer_timeout"]
 [connection signal="timeout" from="DifficultyTimer" to="EnemySpawner" method="_on_difficulty_timer_timeout"]
